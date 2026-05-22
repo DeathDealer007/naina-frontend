@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sage-50: #f4f7f4;
+  --color-sage-100: #e5ebe5;
+  --color-sage-200: #cbd9cc;
+  --color-sage-300: #a7bfab;
+  --color-sage-400: #7b9e84;
+  --color-sage-500: #5e8268;
+  --color-sage-600: #496752;
+  --color-sage-700: #3c5443;
+  --color-sage-800: #334438;
+  --color-sage-900: #1a2f22;
+  --color-sage-950: #0d1510;
+  
+  --color-mint-300: #98d7b5;
+  --color-mint-400: #7fbc9e;
+  --color-mint-500: #5ea885;
+  
+  --color-warm-50: #fdfcf9;
+  --color-warm-100: #f9f5ed;
+  --color-warm-200: #f2e9da;
+  --color-warm-300: #e6d8c4;
+}
+
+:root {
+  --background: #fdfcf9;
+  --foreground: #1a2f22;
+  --card-bg: rgba(255, 255, 255, 0.75);
+  --card-border: rgba(94, 130, 104, 0.15);
+  --shadow-color: rgba(26, 47, 34, 0.05);
+  --chat-user-bg: #e5ebe5;
+  --chat-naina-bg: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0d1510;
+    --foreground: #f4f7f4;
+    --card-bg: rgba(23, 35, 27, 0.75);
+    --card-border: rgba(107, 158, 124, 0.15);
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --chat-user-bg: #1d2e24;
+    --chat-naina-bg: #17231b;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(127, 188, 158, 0.08) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(94, 130, 104, 0.08) 0px, transparent 50%);
+  background-attachment: fixed;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 8px 32px 0 var(--shadow-color);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--card-border);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--foreground);
+  opacity: 0.3;
+}
