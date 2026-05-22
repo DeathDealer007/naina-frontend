@@ -94,7 +94,8 @@ export default function ChatInterface({ onStartExercise, onStartGame }: ChatInte
     setIsLoading(true);
 
     try {
-      const response = await fetch("http://localhost:8081/api/chat", {
+      const backendUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8081";
+      const response = await fetch(`${backendUrl}/api/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
