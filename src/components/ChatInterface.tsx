@@ -43,19 +43,23 @@ interface ChatInterfaceProps {
 }
 
 export default function ChatInterface({ onStartExercise, onStartGame }: ChatInterfaceProps) {
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: "welcome",
-      sender: "naina",
-      text: "Hello! I am Naina, your conversational eye wellness companion. 🌿\n\nStaring at screens all day can lead to dry eyes, strain, or headaches. How are your eyes feeling right now?",
-      timestamp: new Date(),
-    },
-  ]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [sessionId, setSessionId] = useState<string | null>(null);
   
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setMessages([
+      {
+        id: "welcome",
+        sender: "naina",
+        text: "Hello! I am Naina, your conversational eye wellness companion. 🌿\n\nStaring at screens all day can lead to dry eyes, strain, or headaches. How are your eyes feeling right now?",
+        timestamp: new Date(),
+      },
+    ]);
+  }, []);
 
   const actionChips = [
     { label: "👁️ My eyes are strained", prompt: "My eyes are feeling very strained and tired." },
